@@ -2,18 +2,18 @@
 #include<stdlib.h>
 int main();
 
-struct node
+struct node 
 {
     int data;
     struct node *next;
-}*new, *head, *tail, *temp, *nift, *tsla;
+}*new, *head, *tail, *temp, *nift;
 
 int main(void)
 {
-    int value, pos, i;
+    int value, count=0;
     char ch;
-    // Creating linked list
-    do
+    //Creating Linked List
+    do 
     {
         new = (struct node *)malloc(sizeof(struct node));
         printf("Enter value : ");
@@ -30,32 +30,20 @@ int main(void)
             tail->next = new;
             tail = new;
         }
-        printf(" Y or N : ");
+        printf("Y or N : ");
         fflush(stdin);
         scanf("%c", &ch);
         }while(ch=='y');
+    
     temp = head;
-    printf("The LINKED LIST :  ");
+    printf("The LINKED LIST : ");
+    //Counting nodes
     while(temp!=NULL)
     {
+        count++;
         printf("\t%d", temp->data);
         temp = temp->next;
     }
-    printf("\n\nEnter position : ");
-    scanf("%d", &pos);
-    // Deletion logic
-    tsla = head;
-    for(i=0; i<pos-1; i++)
-    {
-        tsla = tsla->next;
-    }
-    tsla->next = tsla->next->next;
-    printf("\nAFTER DELETING AT A SPECIFIC POSITION : ");
-    nift = head;
-    while(nift!=NULL)
-    {
-        printf("\t%d", nift->data);
-        nift = nift->next;
-    }
+    printf("\n NO OF NODES : %d", count);
     return 0;
 }
