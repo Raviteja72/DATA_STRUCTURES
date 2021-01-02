@@ -36,9 +36,10 @@ int main(void)
         }while(ch=='y');
 
     temp = head;
+    printf("The LINKED LIST : ");
     while(temp!=NULL)
     {
-        printf("%d", temp->data);
+        printf("\t%d", temp->data);
         temp = temp->next;
     }
     return 0;
